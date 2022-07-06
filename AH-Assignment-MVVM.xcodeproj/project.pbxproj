@@ -18,6 +18,7 @@
 		30DFCC0028759D5500E57A72 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBFF28759D5500E57A72 /* OverviewViewModel.swift */; };
 		30DFCC022875AFD400E57A72 /* OverviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC012875AFD300E57A72 /* OverviewCoordinator.swift */; };
 		30DFCC072875B70500E57A72 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 30DFCC062875B70500E57A72 /* Alamofire */; };
+		30DFCC0D2875B89B00E57A72 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC0C2875B89B00E57A72 /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		30DFCBFD28759D4300E57A72 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		30DFCBFF28759D5500E57A72 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		30DFCC012875AFD300E57A72 /* OverviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCoordinator.swift; sourceTree = "<group>"; };
+		30DFCC0C2875B89B00E57A72 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				30DFCBF928759BA300E57A72 /* Application */,
 				30DFCBFA28759BCF00E57A72 /* Assets */,
+				30DFCC0A2875B88600E57A72 /* Extensions */,
 				30DFCBFB28759C4E00E57A72 /* Presentation */,
 			);
 			path = "AH-Assignment-MVVM";
@@ -162,6 +165,22 @@
 				30DFCC012875AFD300E57A72 /* OverviewCoordinator.swift */,
 			);
 			path = Overview;
+			sourceTree = "<group>";
+		};
+		30DFCC0A2875B88600E57A72 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC0B2875B89100E57A72 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30DFCC0B2875B89100E57A72 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC0C2875B89B00E57A72 /* URL+Extension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +323,7 @@
 				30DFCC022875AFD400E57A72 /* OverviewCoordinator.swift in Sources */,
 				30DFCBCA287599C200E57A72 /* AppDelegate.swift in Sources */,
 				30DFCC0028759D5500E57A72 /* OverviewViewModel.swift in Sources */,
+				30DFCC0D2875B89B00E57A72 /* URL+Extension.swift in Sources */,
 				30DFCBCC287599C200E57A72 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
