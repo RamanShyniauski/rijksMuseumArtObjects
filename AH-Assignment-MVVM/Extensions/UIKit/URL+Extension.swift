@@ -12,8 +12,8 @@ extension URL {
     static var rijksMuseum: URL {
         var components = URLComponents()
         components.scheme = "https"
-        // TODO: choose nl or en culture
-        components.host = "www.rijksmuseum.nl/api/nl"
+        components.host = "www.rijksmuseum.nl"
+        components.path = "/api/nl"
         return components.url!
     }
 }

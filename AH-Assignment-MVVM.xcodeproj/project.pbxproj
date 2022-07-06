@@ -23,6 +23,7 @@
 		30DFCC0F2875BA1600E57A72 /* Collection+Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC0E2875BA1600E57A72 /* Collection+Endpoint.swift */; };
 		30DFCC152875C04A00E57A72 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC142875C04A00E57A72 /* Route.swift */; };
 		30DFCC172875C66B00E57A72 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC162875C66B00E57A72 /* NetworkError.swift */; };
+		30DFCC1C2875D3D400E57A72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC1B2875D3D400E57A72 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		30DFCC0E2875BA1600E57A72 /* Collection+Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Endpoint.swift"; sourceTree = "<group>"; };
 		30DFCC142875C04A00E57A72 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		30DFCC162875C66B00E57A72 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		30DFCC1B2875D3D400E57A72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				30DFCC042875B6DF00E57A72 /* Endpoints */,
 				30DFCC162875C66B00E57A72 /* NetworkError.swift */,
 				30DFCC142875C04A00E57A72 /* Route.swift */,
+				30DFCC1B2875D3D400E57A72 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				30DFCBFE28759D4300E57A72 /* OverviewViewController.swift in Sources */,
 				30DFCC022875AFD400E57A72 /* OverviewCoordinator.swift in Sources */,
 				30DFCBCA287599C200E57A72 /* AppDelegate.swift in Sources */,
+				30DFCC1C2875D3D400E57A72 /* NetworkManager.swift in Sources */,
 				30DFCC0028759D5500E57A72 /* OverviewViewModel.swift in Sources */,
 				30DFCC092875B72300E57A72 /* Endpoint.swift in Sources */,
 				30DFCC0F2875BA1600E57A72 /* Collection+Endpoint.swift in Sources */,

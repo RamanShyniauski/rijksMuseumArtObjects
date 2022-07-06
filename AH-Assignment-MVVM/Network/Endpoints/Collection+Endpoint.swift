@@ -9,7 +9,7 @@ import Foundation
 
 extension Endpoint {
 
-    static func overview(_ collection: Collection) -> Endpoint {
+    static func collection(_ collection: Collection) -> Endpoint {
         .rijksMuseum(path: collection.path)
     }
 
