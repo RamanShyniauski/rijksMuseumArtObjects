@@ -1,0 +1,23 @@
+//
+//  ArtObjectShort.swift
+//  AH-Assignment-MVVM
+//
+//  Created by Roman on 06/07/2022.
+//
+
+import Foundation
+
+extension ArtObject {
+    
+    struct Short: Decodable {
+        
+        let id: String
+        let objectNumber: String
+        let title: String
+        let webImage: WebImage
+        let hasImage: Bool
+        let principalOrFirstMaker: String
+        let longTitle: String
+        let productionPlaces: [String]
+    }
+}
