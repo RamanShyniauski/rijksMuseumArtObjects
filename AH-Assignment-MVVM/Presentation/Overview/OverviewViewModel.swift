@@ -14,8 +14,14 @@ protocol OverviewViewModel {
 class OverviewViewModelImpl: OverviewViewModel {
     
     private let coordinator: OverviewCoordinator
+    private let networkManager: NetworkManager
     
-    init(coordinator: OverviewCoordinator) {
+    init(
+        coordinator: OverviewCoordinator,
+        networkManager: NetworkManager
+    ) {
         self.coordinator = coordinator
+        self.networkManager = networkManager
+    }
     }
 }

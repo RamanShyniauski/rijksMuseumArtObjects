@@ -24,6 +24,7 @@
 		30DFCC152875C04A00E57A72 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC142875C04A00E57A72 /* Route.swift */; };
 		30DFCC172875C66B00E57A72 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC162875C66B00E57A72 /* NetworkError.swift */; };
 		30DFCC1C2875D3D400E57A72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC1B2875D3D400E57A72 /* NetworkManager.swift */; };
+		30DFCC1E2875DE4300E57A72 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC1D2875DE4300E57A72 /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		30DFCC142875C04A00E57A72 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		30DFCC162875C66B00E57A72 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		30DFCC1B2875D3D400E57A72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		30DFCC1D2875DE4300E57A72 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				30DFCBC9287599C200E57A72 /* AppDelegate.swift */,
+				30DFCC1D2875DE4300E57A72 /* DependencyContainer.swift */,
 				30DFCBCB287599C200E57A72 /* SceneDelegate.swift */,
 				30DFCBD7287599C400E57A72 /* Info.plist */,
 				30DFCBD4287599C400E57A72 /* LaunchScreen.storyboard */,
@@ -183,8 +186,8 @@
 			children = (
 				30DFCC042875B6DF00E57A72 /* Endpoints */,
 				30DFCC162875C66B00E57A72 /* NetworkError.swift */,
-				30DFCC142875C04A00E57A72 /* Route.swift */,
 				30DFCC1B2875D3D400E57A72 /* NetworkManager.swift */,
+				30DFCC142875C04A00E57A72 /* Route.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				30DFCC0F2875BA1600E57A72 /* Collection+Endpoint.swift in Sources */,
 				30DFCC0D2875B89B00E57A72 /* URL+Extension.swift in Sources */,
 				30DFCBCC287599C200E57A72 /* SceneDelegate.swift in Sources */,
+				30DFCC1E2875DE4300E57A72 /* DependencyContainer.swift in Sources */,
 				30DFCC172875C66B00E57A72 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
