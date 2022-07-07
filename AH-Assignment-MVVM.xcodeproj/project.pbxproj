@@ -40,6 +40,7 @@
 		30DFCC462876E30D00E57A72 /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */; };
 		30DFCC492876E8AE00E57A72 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 30DFCC482876E8AE00E57A72 /* Kingfisher */; };
 		30DFCC4B28770A7700E57A72 /* OverviewCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */; };
+		30DFCC4D28771CE500E57A72 /* OverviewCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC4C28771CE500E57A72 /* OverviewCollectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		30DFCC432876DCDB00E57A72 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCellModel.swift; sourceTree = "<group>"; };
+		30DFCC4C28771CE500E57A72 /* OverviewCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				30DFCC012875AFD300E57A72 /* OverviewCoordinator.swift */,
 				30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */,
 				30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */,
+				30DFCC4C28771CE500E57A72 /* OverviewCollectionHeaderView.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30DFCC4D28771CE500E57A72 /* OverviewCollectionHeaderView.swift in Sources */,
 				30DFCC152875C04A00E57A72 /* Route.swift in Sources */,
 				30DFCC372876C6EE00E57A72 /* KeyRequestAdapter.swift in Sources */,
 				30DFCC352875E67300E57A72 /* ArtObjectWebImage.swift in Sources */,
