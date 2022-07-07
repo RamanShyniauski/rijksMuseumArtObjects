@@ -36,6 +36,7 @@
 		30DFCC3A2876CC8B00E57A72 /* EncodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC392876CC8B00E57A72 /* EncodeError.swift */; };
 		30DFCC3F2876CF1100E57A72 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */; };
 		30DFCC422876D28E00E57A72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 30DFCC412876D28E00E57A72 /* SnapKit */; };
+		30DFCC442876DCDB00E57A72 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC432876DCDB00E57A72 /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		30DFCC392876CC8B00E57A72 /* EncodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeError.swift; sourceTree = "<group>"; };
 		30DFCC3C2876CE0900E57A72 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
 		30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		30DFCC432876DCDB00E57A72 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		30DFCC0B2875B89100E57A72 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				30DFCC432876DCDB00E57A72 /* UICollectionView+Extension.swift */,
 				30DFCC0C2875B89B00E57A72 /* URL+Extension.swift */,
 			);
 			path = UIKit;
@@ -446,6 +449,7 @@
 				30DFCC332875E62D00E57A72 /* ArtObject.swift in Sources */,
 				30DFCC232875E05C00E57A72 /* ArtObjectFull.swift in Sources */,
 				30DFCBCA287599C200E57A72 /* AppDelegate.swift in Sources */,
+				30DFCC442876DCDB00E57A72 /* UICollectionView+Extension.swift in Sources */,
 				30DFCC2E2875E60C00E57A72 /* CollectionOverview.swift in Sources */,
 				30DFCC1C2875D3D400E57A72 /* NetworkManager.swift in Sources */,
 				30DFCC212875E05700E57A72 /* ArtObjectShort.swift in Sources */,
