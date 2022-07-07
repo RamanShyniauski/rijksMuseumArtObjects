@@ -11,7 +11,7 @@ import Foundation
 struct KeyRequestAdapter: RequestAdapter {
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Swift.Result<URLRequest, Error>) -> Void) {
         do {
-            let parameters = ["key": "0fiuZFh4"]
+            let parameters = ["key": Bundle.main.apiKey]
             let encodedURLRequest = try URLEncodedFormParameterEncoder.default.encode(parameters, into: urlRequest)
             completion(.success(encodedURLRequest))
         } catch {

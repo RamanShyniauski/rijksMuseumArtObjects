@@ -34,6 +34,7 @@
 		30DFCC352875E67300E57A72 /* ArtObjectWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC342875E67300E57A72 /* ArtObjectWebImage.swift */; };
 		30DFCC372876C6EE00E57A72 /* KeyRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC362876C6EE00E57A72 /* KeyRequestAdapter.swift */; };
 		30DFCC3A2876CC8B00E57A72 /* EncodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC392876CC8B00E57A72 /* EncodeError.swift */; };
+		30DFCC3F2876CF1100E57A72 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		30DFCC342875E67300E57A72 /* ArtObjectWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectWebImage.swift; sourceTree = "<group>"; };
 		30DFCC362876C6EE00E57A72 /* KeyRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRequestAdapter.swift; sourceTree = "<group>"; };
 		30DFCC392876CC8B00E57A72 /* EncodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeError.swift; sourceTree = "<group>"; };
+		30DFCC3C2876CE0900E57A72 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
+		30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 			children = (
 				30DFCBF928759BA300E57A72 /* Application */,
 				30DFCBFA28759BCF00E57A72 /* Assets */,
+				30DFCC3B2876CDB900E57A72 /* Configurations */,
 				30DFCC0A2875B88600E57A72 /* Extensions */,
 				30DFCC1F2875DFA100E57A72 /* Model */,
 				30DFCC032875B6CF00E57A72 /* Network */,
@@ -225,6 +229,7 @@
 		30DFCC0A2875B88600E57A72 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				30DFCC3D2876CF0900E57A72 /* Foundation */,
 				30DFCC0B2875B89100E57A72 /* UIKit */,
 			);
 			path = Extensions;
@@ -274,6 +279,22 @@
 				30DFCC362876C6EE00E57A72 /* KeyRequestAdapter.swift */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		30DFCC3B2876CDB900E57A72 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC3C2876CE0900E57A72 /* Test.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		30DFCC3D2876CF0900E57A72 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +436,7 @@
 				30DFCC152875C04A00E57A72 /* Route.swift in Sources */,
 				30DFCC372876C6EE00E57A72 /* KeyRequestAdapter.swift in Sources */,
 				30DFCC352875E67300E57A72 /* ArtObjectWebImage.swift in Sources */,
+				30DFCC3F2876CF1100E57A72 /* Bundle+Extension.swift in Sources */,
 				30DFCBFE28759D4300E57A72 /* OverviewViewController.swift in Sources */,
 				30DFCC022875AFD400E57A72 /* OverviewCoordinator.swift in Sources */,
 				30DFCC332875E62D00E57A72 /* ArtObject.swift in Sources */,
@@ -482,6 +504,7 @@
 /* Begin XCBuildConfiguration section */
 		30DFCBEE287599C400E57A72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30DFCC3C2876CE0900E57A72 /* Test.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -542,6 +565,7 @@
 		};
 		30DFCBEF287599C400E57A72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30DFCC3C2876CE0900E57A72 /* Test.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
