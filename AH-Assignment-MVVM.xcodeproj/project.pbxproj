@@ -37,7 +37,9 @@
 		30DFCC3F2876CF1100E57A72 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */; };
 		30DFCC422876D28E00E57A72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 30DFCC412876D28E00E57A72 /* SnapKit */; };
 		30DFCC442876DCDB00E57A72 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC432876DCDB00E57A72 /* UICollectionView+Extension.swift */; };
+		30DFCC462876E30D00E57A72 /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */; };
 		30DFCC492876E8AE00E57A72 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 30DFCC482876E8AE00E57A72 /* Kingfisher */; };
+		30DFCC4B28770A7700E57A72 /* OverviewCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		30DFCC3C2876CE0900E57A72 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
 		30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		30DFCC432876DCDB00E57A72 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,8 @@
 				30DFCBFD28759D4300E57A72 /* OverviewViewController.swift */,
 				30DFCBFF28759D5500E57A72 /* OverviewViewModel.swift */,
 				30DFCC012875AFD300E57A72 /* OverviewCoordinator.swift */,
+				30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */,
+				30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -454,10 +460,12 @@
 				30DFCC232875E05C00E57A72 /* ArtObjectFull.swift in Sources */,
 				30DFCBCA287599C200E57A72 /* AppDelegate.swift in Sources */,
 				30DFCC442876DCDB00E57A72 /* UICollectionView+Extension.swift in Sources */,
+				30DFCC462876E30D00E57A72 /* OverviewCollectionViewCell.swift in Sources */,
 				30DFCC2E2875E60C00E57A72 /* CollectionOverview.swift in Sources */,
 				30DFCC1C2875D3D400E57A72 /* NetworkManager.swift in Sources */,
 				30DFCC212875E05700E57A72 /* ArtObjectShort.swift in Sources */,
 				30DFCC0028759D5500E57A72 /* OverviewViewModel.swift in Sources */,
+				30DFCC4B28770A7700E57A72 /* OverviewCollectionViewCellModel.swift in Sources */,
 				30DFCC2B2875E5AE00E57A72 /* Collection.swift in Sources */,
 				30DFCC092875B72300E57A72 /* Endpoint.swift in Sources */,
 				30DFCC0F2875BA1600E57A72 /* Collection+Endpoint.swift in Sources */,
