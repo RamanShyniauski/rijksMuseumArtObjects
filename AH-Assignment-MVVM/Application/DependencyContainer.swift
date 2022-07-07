@@ -10,7 +10,9 @@ import Foundation
 
 final class DependencyContainer {
     
-    private lazy var networkSession = Session()
+    private lazy var networkSession = Session(
+        interceptor: Interceptor(adapters: [KeyRequestAdapter()])
+    )
     
     lazy var networkManager: NetworkManager = NetworkManagerImpl(
         session: networkSession
