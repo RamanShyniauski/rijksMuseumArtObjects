@@ -21,4 +21,25 @@ extension UICollectionView {
         }
         return cell
     }
+    
+    func registerHeader<T: UICollectionReusableView>(_ type: T.Type, reuseIdentifier: String? = nil) {
+        let typeName = String(describing: T.self)
+        register(
+            T.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: typeName
+        )
+    }
+    
+    func dequeueReusableSupplementaryViewHeader<T: UICollectionReusableView>(for indexPath: IndexPath) -> T {
+        let typeName = String(describing: T.self)
+        guard let header = dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: typeName,
+            for: indexPath
+        ) as? T else {
+            fatalError("Cannot dequeue collectionView header with class \(typeName)")
+        }
+        return header
+    }
 }

@@ -18,6 +18,7 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8
+        label.textAlignment = .center
         return label
     }()
     
@@ -30,14 +31,16 @@ class OverviewCollectionViewCell: UICollectionViewCell {
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.alignment = .leading
+        stack.alignment = .center
         stack.addArrangedSubview(imageView)
         stack.addArrangedSubview(labelView)
         return stack
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
+        backgroundColor = .lightGray.withAlphaComponent(0.3)
+        layer.cornerRadius = 5
         addSubview(stackView)
         imageView.kf.indicatorType = .activity
         stackView.snp.makeConstraints { make in
@@ -45,10 +48,12 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         }
         labelView.snp.makeConstraints { make in
             make.height.equalTo(30)
-            make.bottom.leading.trailing.equalTo(0)
+            make.leading.bottom.equalTo(5)
+            make.trailing.equalTo(-5)
         }
         imageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(0)
+            make.left.top.equalTo(5)
+            make.right.equalTo(-5)
             make.bottom.equalTo(labelView.snp.top)
         }
     }
@@ -63,7 +68,7 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         imageView.kf.cancelDownloadTask()
     }
     
-    func setup(_ model: OverviewCollectionViewCellModel) {
+    func setup(with model: OverviewCollectionViewCellModel) {
         labelView.text = model.title
         imageView.layoutIfNeeded()
         imageView.kf.setImage(
