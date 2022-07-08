@@ -32,6 +32,7 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
+        stack.spacing = 2
         stack.addArrangedSubview(imageView)
         stack.addArrangedSubview(labelView)
         return stack
@@ -44,17 +45,8 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         addSubview(stackView)
         imageView.kf.indicatorType = .activity
         stackView.snp.makeConstraints { make in
-            make.bottom.top.leading.trailing.equalTo(0)
-        }
-        labelView.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.leading.bottom.equalTo(5)
-            make.trailing.equalTo(-5)
-        }
-        imageView.snp.makeConstraints { make in
-            make.left.top.equalTo(5)
-            make.right.equalTo(-5)
-            make.bottom.equalTo(labelView.snp.top)
+            make.leading.top.equalTo(5)
+            make.trailing.bottom.equalTo(-5)
         }
     }
     
@@ -73,11 +65,11 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         imageView.layoutIfNeeded()
         imageView.kf.setImage(
             with: model.imageURL,
-            placeholder: UIImage(systemName: "rectangle.dashed"),
             options: [
                 .processor(DownsamplingImageProcessor(size: imageView.bounds.size)),
                 .scaleFactor(UIScreen.main.scale),
-                .cacheOriginalImage
+                .cacheOriginalImage,
+                .onFailureImage(UIImage(systemName: "eye.trianglebadge.exclamationmark"))
             ]
         )
     }

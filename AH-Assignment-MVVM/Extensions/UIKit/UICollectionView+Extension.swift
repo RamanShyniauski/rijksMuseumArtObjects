@@ -22,24 +22,39 @@ extension UICollectionView {
         return cell
     }
     
-    func registerHeader<T: UICollectionReusableView>(_ type: T.Type, reuseIdentifier: String? = nil) {
+    func registerReusableView<T: UICollectionReusableView>(
+        _ type: T.Type,
+        reuseIdentifier: String? = nil,
+        forSupplementaryViewOfKind: String
+    ) {
         let typeName = String(describing: T.self)
         register(
             T.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            forSupplementaryViewOfKind: forSupplementaryViewOfKind,
             withReuseIdentifier: typeName
         )
     }
     
-    func dequeueReusableSupplementaryViewHeader<T: UICollectionReusableView>(for indexPath: IndexPath) -> T {
+    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(
+        ofKind: String,
+        for indexPath: IndexPath
+    ) -> T {
         let typeName = String(describing: T.self)
         guard let header = dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
+            ofKind: ofKind,
             withReuseIdentifier: typeName,
             for: indexPath
         ) as? T else {
-            fatalError("Cannot dequeue collectionView header with class \(typeName)")
+            fatalError("Cannot dequeue supplementary view with class \(typeName)")
         }
         return header
+    }
+    
+    func scrollToFirstItem() {
+        scrollToItem(
+            at: .init(row: 0, section: 0),
+            at: .centeredVertically,
+            animated: true
+        )
     }
 }
