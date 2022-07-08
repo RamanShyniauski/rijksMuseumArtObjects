@@ -13,6 +13,7 @@ protocol OverviewViewModel {
     var numberOfSections: Int { get }
     var isBackPaginationAvailable: Bool { get }
     var isForwardPaginationAvailable: Bool { get }
+    var paginationLabelText: String { get }
     func titleForSection(_ section: Int) -> String
     func numberOfRows(in section: Int) -> Int
     func cellModel(at indexPath: IndexPath) -> OverviewCollectionViewCellModel
@@ -54,6 +55,10 @@ class OverviewViewModelImpl: OverviewViewModel {
     
     var isForwardPaginationAvailable: Bool {
         currentPage < pagesAvailable
+    }
+    
+    var paginationLabelText: String {
+        "\(currentPage) page of \(pagesAvailable) pages"
     }
     
     init(coordinator: OverviewCoordinator, networkManager: NetworkManager) {

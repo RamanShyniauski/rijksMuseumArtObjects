@@ -40,6 +40,16 @@ class PaginationView: UIView {
         return back
     }()
     
+    private lazy var paginationLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .black
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
+        return label
+    }()
+    
     private lazy var forwardButton: UIButton = {
         var configuration = UIButton.Configuration.gray()
         configuration.title = "Next"
@@ -55,6 +65,7 @@ class PaginationView: UIView {
         paginationStack.spacing = 10
         paginationStack.axis = .horizontal
         paginationStack.addArrangedSubview(backButton)
+        paginationStack.addArrangedSubview(paginationLabel)
         paginationStack.addArrangedSubview(forwardButton)
         return paginationStack
     }()
@@ -83,5 +94,9 @@ class PaginationView: UIView {
     
     func updateForwardButtonState(isEnabled: Bool) {
         forwardButton.isEnabled = isEnabled
+    }
+    
+    func updatePaginationLabel(_ text: String) {
+        paginationLabel.text = text
     }
 }

@@ -15,7 +15,6 @@ class OverviewViewController: UIViewController {
     private let cellInteritemSpacing: CGFloat = 10
     private let sectionLeftRightSpacing: CGFloat = 10
     private let paginationViewHeight: CGFloat = 40
-    private var paginationTopConstraint: Constraint?
     
     private var viewModel: OverviewViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -23,6 +22,8 @@ class OverviewViewController: UIViewController {
     private lazy var paginationView: PaginationView = {
         let pagination = PaginationView()
         pagination.delegate = self
+        pagination.backgroundColor = .lightGray.withAlphaComponent(0.8)
+        pagination.layer.cornerRadius = 5
         return pagination
     }()
     
@@ -79,11 +80,6 @@ class OverviewViewController: UIViewController {
         setupConstraints()
         viewModel.didLoad()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        paginationTopConstraint?.update(offset: collectionView.contentSize.height)
-    }
 }
 
 private extension OverviewViewController {
@@ -93,9 +89,9 @@ private extension OverviewViewController {
         title = "Overview"
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.addSubview(paginationView)
         paginationView.isHidden = true
         view.addSubview(collectionView)
+        view.addSubview(paginationView)
         view.addSubview(loaderView)
         view.addSubview(messageView)
     }
@@ -104,17 +100,18 @@ private extension OverviewViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        paginationView.snp.makeConstraints { make in
+            make.height.equalTo(paginationViewHeight)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.centerX.equalToSuperview()
+            make.leading.greaterThanOrEqualToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
+        }
         loaderView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         messageView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-        paginationView.snp.makeConstraints { make in
-            make.height.equalTo(paginationViewHeight)
-            make.centerX.equalToSuperview()
-            let offsetHeight = collectionView.contentSize.height
-            paginationTopConstraint = make.top.equalToSuperview().offset(offsetHeight).constraint
         }
     }
     
@@ -146,6 +143,7 @@ private extension OverviewViewController {
     
     func handleLoadedState() {
         collectionView.reloadData()
+        collectionView.scrollToFirstItem()
         collectionView.isUserInteractionEnabled = true
         collectionView.isHidden = false
         paginationView.isHidden = false
@@ -153,6 +151,7 @@ private extension OverviewViewController {
         messageView.isHidden = true
         paginationView.updateBackButtonState(isEnabled: viewModel.isBackPaginationAvailable)
         paginationView.updateForwardButtonState(isEnabled: viewModel.isForwardPaginationAvailable)
+        paginationView.updatePaginationLabel(viewModel.paginationLabelText)
     }
     
     func handleEmptyState() {
@@ -242,12 +241,10 @@ extension OverviewViewController : UICollectionViewDelegateFlowLayout{
 extension OverviewViewController: PaginationViewDelegate {
     
     func goBack() {
-        collectionView.scrollToFirstItem()
         viewModel.goBack()
     }
 
     func goForward() {
-        collectionView.scrollToFirstItem()
         viewModel.goForward()
     }
 }
