@@ -41,6 +41,7 @@
 		30DFCC492876E8AE00E57A72 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 30DFCC482876E8AE00E57A72 /* Kingfisher */; };
 		30DFCC4B28770A7700E57A72 /* OverviewCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */; };
 		30DFCC4D28771CE500E57A72 /* OverviewCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC4C28771CE500E57A72 /* OverviewCollectionHeaderView.swift */; };
+		30DFCC5228772D5400E57A72 /* OverviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC5128772D5400E57A72 /* OverviewSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		30DFCC4C28771CE500E57A72 /* OverviewCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionHeaderView.swift; sourceTree = "<group>"; };
+		30DFCC5128772D5400E57A72 /* OverviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 			children = (
 				30DFCC312875E62600E57A72 /* ArtObject */,
 				30DFCC2C2875E5F300E57A72 /* Collection */,
+				30DFCC4E28772D3400E57A72 /* Overview */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +314,14 @@
 				30DFCC3E2876CF1100E57A72 /* Bundle+Extension.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		30DFCC4E28772D3400E57A72 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC5128772D5400E57A72 /* OverviewSection.swift */,
+			);
+			path = Overview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +487,7 @@
 				30DFCC3A2876CC8B00E57A72 /* EncodeError.swift in Sources */,
 				30DFCC0D2875B89B00E57A72 /* URL+Extension.swift in Sources */,
 				30DFCBCC287599C200E57A72 /* SceneDelegate.swift in Sources */,
+				30DFCC5228772D5400E57A72 /* OverviewSection.swift in Sources */,
 				30DFCC302875E61900E57A72 /* CollectionObjectDetails.swift in Sources */,
 				30DFCC1E2875DE4300E57A72 /* DependencyContainer.swift in Sources */,
 				30DFCC172875C66B00E57A72 /* NetworkError.swift in Sources */,
