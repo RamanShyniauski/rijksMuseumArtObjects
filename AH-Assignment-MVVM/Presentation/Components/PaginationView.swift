@@ -9,8 +9,8 @@ import SnapKit
 import UIKit
 
 protocol PaginationViewDelegate: AnyObject {
-    func goBack()
-    func goForward()
+    func onBackAction()
+    func onForwardAction()
 }
 
 class PaginationView: UIView {
@@ -35,19 +35,19 @@ class PaginationView: UIView {
         configuration.title = "Back"
         configuration.image = UIImage(systemName: "arrow.backward")
         configuration.imagePlacement = .leading
-        let back = UIButton(configuration: configuration)
-        back.addTarget(self, action: #selector(goBack), for: .touchUpInside)
-        return back
+        let backButton = UIButton(configuration: configuration)
+        backButton.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
+        return backButton
     }()
     
     private lazy var paginationLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .black
-        label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.8
-        return label
+        let paginationLabel = UILabel()
+        paginationLabel.font = .systemFont(ofSize: 14)
+        paginationLabel.textColor = .black
+        paginationLabel.numberOfLines = 1
+        paginationLabel.adjustsFontSizeToFitWidth = true
+        paginationLabel.minimumScaleFactor = 0.8
+        return paginationLabel
     }()
     
     private lazy var forwardButton: UIButton = {
@@ -55,9 +55,9 @@ class PaginationView: UIView {
         configuration.title = "Next"
         configuration.image = UIImage(systemName: "arrow.forward")
         configuration.imagePlacement = .trailing
-        let forward = UIButton(configuration: configuration)
-        forward.addTarget(self, action: #selector(goForward), for: .touchUpInside)
-        return forward
+        let forwardButton = UIButton(configuration: configuration)
+        forwardButton.addTarget(self, action: #selector(onForwardAction), for: .touchUpInside)
+        return forwardButton
     }()
     
     private lazy var paginationStackView: UIStackView = {
@@ -71,21 +71,13 @@ class PaginationView: UIView {
     }()
     
     @objc
-    private func goBack() {
-        delegate?.goBack()
+    private func onBackAction() {
+        delegate?.onBackAction()
     }
 
     @objc
-    private func goForward() {
-        delegate?.goForward()
-    }
-    
-    func updateBackTitle(_ backTitle: String) {
-        backButton.configuration?.title = backTitle
-    }
-    
-    func updateForwardTitle(_ forwardTitle: String) {
-        forwardButton.configuration?.title = forwardTitle
+    private func onForwardAction() {
+        delegate?.onForwardAction()
     }
     
     func updateBackButtonState(isEnabled: Bool) {

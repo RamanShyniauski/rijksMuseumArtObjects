@@ -19,8 +19,8 @@ protocol OverviewViewModel {
     func cellModel(at indexPath: IndexPath) -> OverviewCollectionViewCellModel
     func didLoad()
     func didSelectItem(at indexPath: IndexPath)
-    func goForward()
-    func goBack()
+    func onForwardAction()
+    func onBackAction()
 }
 
 class OverviewViewModelImpl: OverviewViewModel {
@@ -32,17 +32,16 @@ class OverviewViewModelImpl: OverviewViewModel {
     @Published private var state: State = .loading
     private(set) lazy var statePublisher = $state.eraseToAnyPublisher()
     
-    private let coordinator: OverviewCoordinator
+    private let coordinator: ArtObjectsCoordinator
     private let networkManager: NetworkManager
     
     private let resultsPerPage = 10
-    // MARK: use page 1 as initial because API return same results for page 0 and 1
     private var currentPage = 1
     private var objectsTotalCount = 0
     private var pagesAvailable: Int {
         Int((Double(objectsTotalCount) / Double(resultsPerPage)).rounded(.up))
     }
-
+    
     private var sections: [OverviewSection] = []
     
     var numberOfSections: Int {
@@ -61,7 +60,7 @@ class OverviewViewModelImpl: OverviewViewModel {
         "\(currentPage) page of \(pagesAvailable) pages"
     }
     
-    init(coordinator: OverviewCoordinator, networkManager: NetworkManager) {
+    init(coordinator: ArtObjectsCoordinator, networkManager: NetworkManager) {
         self.coordinator = coordinator
         self.networkManager = networkManager
     }
@@ -87,14 +86,14 @@ class OverviewViewModelImpl: OverviewViewModel {
         sections[indexPath.section].cells[indexPath.row]
     }
     
-    func goBack() {
+    func onBackAction() {
         guard isBackPaginationAvailable else { return }
         currentPage -= 1
         state = .loading
         loadOverview()
     }
     
-    func goForward() {
+    func onForwardAction() {
         guard isForwardPaginationAvailable else { return }
         currentPage += 1
         state = .loading
@@ -120,7 +119,7 @@ private extension OverviewViewModelImpl {
     func handleSuccess(_ collectionOverview: Collection.Overview) {
         objectsTotalCount = collectionOverview.count
         sections = []
-        var cells: [String: [OverviewCollectionViewCellModel]] = [:]
+        var artObjects: [String: [OverviewCollectionViewCellModel]] = [:]
         for artObject in collectionOverview.artObjects {
             let model = OverviewCollectionViewCellModel(
                 objectNumber: artObject.objectNumber,
@@ -128,9 +127,9 @@ private extension OverviewViewModelImpl {
                 imageURL: URL(string: artObject.webImage.url)
             )
             let principalOrFirstMaker = artObject.principalOrFirstMaker
-            cells[principalOrFirstMaker, default: []].append(model)
+            artObjects[principalOrFirstMaker, default: []].append(model)
         }
-        for (key, value) in cells.sorted(by: { $0.key < $1.key }) {
+        for (key, value) in artObjects.sorted(by: { $0.key < $1.key }) {
             sections.append(OverviewSection(name: "Author: " + key, cells: value))
         }
         state = sections.isEmpty ? .empty : .loaded

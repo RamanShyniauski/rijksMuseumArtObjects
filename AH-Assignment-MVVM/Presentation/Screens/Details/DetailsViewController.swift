@@ -16,59 +16,59 @@ class DetailsViewController: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     
     private lazy var loaderView: UIActivityIndicatorView = {
-        let loader = UIActivityIndicatorView(style: .large)
-        loader.hidesWhenStopped = true
-        return loader
+        let loaderView = UIActivityIndicatorView(style: .large)
+        loaderView.hidesWhenStopped = true
+        return loaderView
     }()
     
-    private lazy var messageView: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
+    private lazy var messageLabel: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.font = .systemFont(ofSize: 24)
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        return messageLabel
     }()
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        imageView.backgroundColor = .lightGray
         return imageView
     }()
     
-    private lazy var titleView: UILabel = {
-        let title = UILabel()
-        title.font = .systemFont(ofSize: 16)
-        title.textColor = .black
-        title.numberOfLines = 0
-        title.textAlignment = .left
-        return title
+    private lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = .systemFont(ofSize: 16)
+        titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .left
+        return titleLabel
     }()
     
-    private lazy var descriptionView: UILabel = {
-        let description = UILabel()
-        description.font = .systemFont(ofSize: 14)
-        description.textColor = .black
-        description.numberOfLines = 0
-        description.textAlignment = .left
-        return description
+    private lazy var descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.font = .systemFont(ofSize: 14)
+        descriptionLabel.textColor = .black
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.textAlignment = .left
+        return descriptionLabel
     }()
     
     private lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.addSubview(descriptionStackView)
-        return scroll
+        let scrollView = UIScrollView()
+        scrollView.addSubview(descriptionStackView)
+        return scrollView
     }()
     
     private lazy var descriptionStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 10
-        stack.distribution = .fillProportionally
-        stack.addArrangedSubview(titleView)
-        stack.addArrangedSubview(descriptionView)
-        return stack
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(descriptionLabel)
+        return stackView
     }()
     
     init(viewModel: DetailsViewModel) {
@@ -88,6 +88,11 @@ class DetailsViewController: UIViewController {
         setupConstraints()
         viewModel.didLoad()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.didDisappear()
+    }
 }
 
 private extension DetailsViewController {
@@ -100,14 +105,14 @@ private extension DetailsViewController {
             image: UIImage(systemName: "arrow.left"),
             style: .plain,
             target: viewModel,
-            action: #selector(viewModel.backButtonAction)
+            action: #selector(viewModel.onBackButtonAction)
         )
         navigationItem.setLeftBarButton(backButton, animated: false)
         imageView.kf.indicatorType = .activity
         view.addSubview(imageView)
         view.addSubview(scrollView)
         view.addSubview(loaderView)
-        view.addSubview(messageView)
+        view.addSubview(messageLabel)
     }
     
     func setupConstraints() {
@@ -117,17 +122,17 @@ private extension DetailsViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
         descriptionStackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(15)
+            make.verticalEdges.equalToSuperview().inset(15)
             make.horizontalEdges.equalTo(view).inset(15)
         }
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.horizontalEdges.bottom.equalToSuperview()
         }
         loaderView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        messageView.snp.makeConstraints { make in
+        messageLabel.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -152,14 +157,12 @@ private extension DetailsViewController {
     func handleLoadingState() {
         loaderView.startAnimating()
         loaderView.isHidden = false
-        descriptionStackView.isUserInteractionEnabled = false
     }
     
     func handleLoadedState() {
         loaderView.isHidden = true
-        descriptionStackView.isUserInteractionEnabled = true
-        titleView.text = viewModel.title
-        descriptionView.text = viewModel.description
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
         imageView.layoutIfNeeded()
         imageView.kf.setImage(
             with: viewModel.imageURL,
@@ -173,8 +176,8 @@ private extension DetailsViewController {
     }
     
     func handleErrorState(_ error: String) {
-        messageView.text = error
-        messageView.isHidden = false
+        messageLabel.text = error
+        messageLabel.isHidden = false
         descriptionStackView.isHidden = true
         loaderView.isHidden = true
     }

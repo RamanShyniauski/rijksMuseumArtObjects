@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         
         let dependencyContainer = DependencyContainer()
-        let coordinator = OverviewCoordinatorImpl(
+        let coordinator = ArtObjectsCoordinatorImpl(
             navigationController: navigationController,
             dependencyContainer: dependencyContainer
         )

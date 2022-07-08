@@ -1,5 +1,5 @@
 //
-//  OverviewCoordinator.swift
+//  ArtObjectsCoordinator.swift
 //  AH-Assignment-MVVM
 //
 //  Created by Roman on 06/07/2022.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol OverviewCoordinator {
+protocol ArtObjectsCoordinator {
     func start()
     func showDetails(for objectNumber: String)
     func back()
 }
 
-final class OverviewCoordinatorImpl: OverviewCoordinator {
+final class ArtObjectsCoordinatorImpl: ArtObjectsCoordinator {
     
     private unowned let navigationController: UINavigationController
     private let dependencyContainer: DependencyContainer

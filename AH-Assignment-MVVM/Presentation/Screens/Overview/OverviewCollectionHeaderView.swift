@@ -10,25 +10,20 @@ import UIKit
 
 class OverviewCollectionHeaderView: UICollectionReusableView {
         
-    private lazy var labelView: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
-        label.textColor = .black
-        label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.8
-        label.textAlignment = .left
-        return label
+    private lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = .systemFont(ofSize: 24)
+        titleLabel.textColor = .black
+        titleLabel.numberOfLines = 2
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.8
+        titleLabel.textAlignment = .left
+        return titleLabel
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .lightGray.withAlphaComponent(0.5)
-        addSubview(labelView)
-        labelView.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(10)
-        }
+        setupView()
     }
     
     @available(*, unavailable)
@@ -36,7 +31,16 @@ class OverviewCollectionHeaderView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupView() {
+        backgroundColor = .lightGray
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(10)
+        }
+    }
+    
     func setup(with title: String) {
-        labelView.text = title
+        titleLabel.text = title
     }
 }

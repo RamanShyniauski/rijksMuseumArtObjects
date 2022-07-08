@@ -8,16 +8,17 @@
 import Combine
 import Foundation
 
-@objc protocol BackNavigationHandler {
-    func backButtonAction()
+@objc protocol NavigationHandler {
+    func onBackButtonAction()
 }
 
-protocol DetailsViewModel: BackNavigationHandler {
+protocol DetailsViewModel: NavigationHandler {
     var statePublisher: AnyPublisher<DetailsViewModelImpl.State, Never> { get }
     var imageURL: URL? { get }
     var title: String? { get }
     var description: String? { get }
     func didLoad()
+    func didDisappear()
 }
 
 class DetailsViewModelImpl: DetailsViewModel {
@@ -30,9 +31,10 @@ class DetailsViewModelImpl: DetailsViewModel {
     private(set) lazy var statePublisher = $state.eraseToAnyPublisher()
     
     private let objectNumber: String
-    private let coordinator: OverviewCoordinator
+    private let coordinator: ArtObjectsCoordinator
     private let networkManager: NetworkManager
     
+    private var loadingTask: Task<Void, Never>?
     private var artObject: ArtObject.Full?
     
     var imageURL: URL? {
@@ -51,14 +53,17 @@ class DetailsViewModelImpl: DetailsViewModel {
         artObject?.description
     }
     
-    init(objectNumber: String, coordinator: OverviewCoordinator, networkManager: NetworkManager) {
+    init(objectNumber: String, coordinator: ArtObjectsCoordinator, networkManager: NetworkManager) {
         self.objectNumber = objectNumber
         self.coordinator = coordinator
         self.networkManager = networkManager
     }
     
     func didLoad() {
-        Task {
+        guard loadingTask == nil else {
+            return
+        }
+        loadingTask = Task {
             do {
                 let route = Route(.get, .collection(.details(objectNumber)))
                 let objectDetails: Collection.ObjectDetails = try await networkManager.request(route)
@@ -66,11 +71,17 @@ class DetailsViewModelImpl: DetailsViewModel {
             } catch {
                 handleError(error)
             }
+            loadingTask = nil
         }
     }
     
+    func didDisappear() {
+        loadingTask?.cancel()
+        loadingTask = nil
+    }
+    
     @objc
-    func backButtonAction() {
+    func onBackButtonAction() {
         coordinator.back()
     }
 }

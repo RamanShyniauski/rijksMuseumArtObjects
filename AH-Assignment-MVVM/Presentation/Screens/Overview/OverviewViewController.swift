@@ -13,54 +13,54 @@ class OverviewViewController: UIViewController {
     
     private let numberOfCellsInRow: CGFloat = 3
     private let cellInteritemSpacing: CGFloat = 10
-    private let sectionLeftRightSpacing: CGFloat = 10
+    private let sectionHorizontalSpacing: CGFloat = 10
     private let paginationViewHeight: CGFloat = 40
     
     private var viewModel: OverviewViewModel
     private var cancellables: Set<AnyCancellable> = []
     
     private lazy var paginationView: PaginationView = {
-        let pagination = PaginationView()
-        pagination.delegate = self
-        pagination.backgroundColor = .lightGray.withAlphaComponent(0.8)
-        pagination.layer.cornerRadius = 5
-        return pagination
+        let paginationView = PaginationView()
+        paginationView.delegate = self
+        paginationView.backgroundColor = .lightGray.withAlphaComponent(0.8)
+        paginationView.layer.cornerRadius = 5
+        return paginationView
     }()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(
             top: 20,
-            left: sectionLeftRightSpacing,
+            left: sectionHorizontalSpacing,
             bottom: 10,
-            right: sectionLeftRightSpacing
+            right: sectionHorizontalSpacing
         )
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = cellInteritemSpacing
         layout.minimumLineSpacing = 20
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.contentInset.bottom = paginationViewHeight
-        collection.register(OverviewCollectionViewCell.self)
-        collection.registerReusableView(
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.contentInset.bottom = paginationViewHeight
+        collectionView.register(OverviewCollectionViewCell.self)
+        collectionView.registerReusableView(
             OverviewCollectionHeaderView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader
         )
-        return collection
+        return collectionView
     }()
     
     private lazy var loaderView: UIActivityIndicatorView = {
-        let loader = UIActivityIndicatorView(style: .large)
-        loader.hidesWhenStopped = true
-        return loader
+        let loaderView = UIActivityIndicatorView(style: .large)
+        loaderView.hidesWhenStopped = true
+        return loaderView
     }()
     
-    private lazy var messageView: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
+    private lazy var messageLabel: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.font = .systemFont(ofSize: 24)
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        return messageLabel
     }()
     
     init(viewModel: OverviewViewModel) {
@@ -93,7 +93,7 @@ private extension OverviewViewController {
         view.addSubview(collectionView)
         view.addSubview(paginationView)
         view.addSubview(loaderView)
-        view.addSubview(messageView)
+        view.addSubview(messageLabel)
     }
     
     func setupConstraints() {
@@ -110,7 +110,7 @@ private extension OverviewViewController {
         loaderView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        messageView.snp.makeConstraints { make in
+        messageLabel.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -137,7 +137,7 @@ private extension OverviewViewController {
     func handleLoadingState() {
         loaderView.startAnimating()
         loaderView.isHidden = false
-        messageView.isHidden = true
+        messageLabel.isHidden = true
         collectionView.isUserInteractionEnabled = false
     }
     
@@ -148,23 +148,23 @@ private extension OverviewViewController {
         collectionView.isHidden = false
         paginationView.isHidden = false
         loaderView.isHidden = true
-        messageView.isHidden = true
+        messageLabel.isHidden = true
         paginationView.updateBackButtonState(isEnabled: viewModel.isBackPaginationAvailable)
         paginationView.updateForwardButtonState(isEnabled: viewModel.isForwardPaginationAvailable)
         paginationView.updatePaginationLabel(viewModel.paginationLabelText)
     }
     
     func handleEmptyState() {
-        messageView.text = "No Art objects available!"
-        messageView.isHidden = false
+        messageLabel.text = "No Art objects available!"
+        messageLabel.isHidden = false
         collectionView.isHidden = true
         loaderView.isHidden = true
         paginationView.isHidden = true
     }
     
     func handleErrorState(_ error: String) {
-        messageView.text = error
-        messageView.isHidden = false
+        messageLabel.text = error
+        messageLabel.isHidden = false
         collectionView.isHidden = true
         loaderView.isHidden = true
         paginationView.isHidden = true
@@ -231,7 +231,7 @@ extension OverviewViewController : UICollectionViewDelegateFlowLayout{
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
-        let horizontalSpacing = sectionLeftRightSpacing * 2
+        let horizontalSpacing = sectionHorizontalSpacing * 2
         let rowsInteritemSpacing = cellInteritemSpacing * (numberOfCellsInRow - 1)
         let widthHeight = (collectionViewWidth - horizontalSpacing - rowsInteritemSpacing) / numberOfCellsInRow
         return CGSize(width: widthHeight, height: widthHeight)
@@ -240,11 +240,11 @@ extension OverviewViewController : UICollectionViewDelegateFlowLayout{
 
 extension OverviewViewController: PaginationViewDelegate {
     
-    func goBack() {
-        viewModel.goBack()
+    func onBackAction() {
+        viewModel.onBackAction()
     }
 
-    func goForward() {
-        viewModel.goForward()
+    func onForwardAction() {
+        viewModel.onForwardAction()
     }
 }

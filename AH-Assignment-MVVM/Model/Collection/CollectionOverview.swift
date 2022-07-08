@@ -10,6 +10,7 @@ import Foundation
 extension Collection {
     
     struct Overview: Decodable {
+        
         let count: Int
         let artObjects: [ArtObject.Short]
     }

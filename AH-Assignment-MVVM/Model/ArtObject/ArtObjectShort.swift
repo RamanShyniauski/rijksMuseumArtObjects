@@ -11,13 +11,9 @@ extension ArtObject {
     
     struct Short: Decodable {
         
-        let id: String
         let objectNumber: String
         let title: String
         let webImage: WebImage
-        let hasImage: Bool
         let principalOrFirstMaker: String
-        let longTitle: String
-        let productionPlaces: [String]
     }
 }

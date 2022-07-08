@@ -13,7 +13,7 @@ extension URL {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "www.rijksmuseum.nl"
-        components.path = "/api/nl"
+        components.path = "/api/en"
         return components.url!
     }
 }

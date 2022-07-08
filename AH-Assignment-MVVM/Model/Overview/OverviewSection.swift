@@ -8,6 +8,7 @@
 import Foundation
 
 struct OverviewSection {
+    
     let name: String
     let cells: [OverviewCollectionViewCellModel]
 }

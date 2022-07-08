@@ -11,15 +11,15 @@ import UIKit
 
 class OverviewCollectionViewCell: UICollectionViewCell {
     
-    private lazy var labelView: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12)
-        label.textColor = .black
-        label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.8
-        label.textAlignment = .center
-        return label
+    private lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = .systemFont(ofSize: 12)
+        titleLabel.textColor = .black
+        titleLabel.numberOfLines = 2
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.8
+        titleLabel.textAlignment = .center
+        return titleLabel
     }()
     
     private lazy var imageView: UIImageView = {
@@ -29,24 +29,18 @@ class OverviewCollectionViewCell: UICollectionViewCell {
     }()
     
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.alignment = .center
-        stack.spacing = 2
-        stack.addArrangedSubview(imageView)
-        stack.addArrangedSubview(labelView)
-        return stack
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 2
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(titleLabel)
+        return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .lightGray.withAlphaComponent(0.3)
-        layer.cornerRadius = 5
-        addSubview(stackView)
-        imageView.kf.indicatorType = .activity
-        stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(5)
-        }
+        setupView()
     }
     
     @available(*, unavailable)
@@ -59,8 +53,18 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         imageView.kf.cancelDownloadTask()
     }
     
+    private func setupView() {
+        backgroundColor = .lightGray
+        layer.cornerRadius = 5
+        addSubview(stackView)
+        imageView.kf.indicatorType = .activity
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(5)
+        }
+    }
+    
     func setup(with model: OverviewCollectionViewCellModel) {
-        labelView.text = model.title
+        titleLabel.text = model.title
         imageView.layoutIfNeeded()
         imageView.kf.setImage(
             with: model.imageURL,

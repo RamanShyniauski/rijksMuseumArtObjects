@@ -10,6 +10,7 @@ import Foundation
 extension Collection {
     
     struct ObjectDetails: Decodable {
+        
         let artObject: ArtObject.Full
     }
 }

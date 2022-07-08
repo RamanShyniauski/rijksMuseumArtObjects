@@ -21,8 +21,8 @@ extension Endpoint {
             switch self {
             case .overview:
                 return "collection"
-            case .details(let id):
-                return "collection/" + id
+            case .details(let objectNumber):
+                return "collection/" + objectNumber
             }
         }
     }
