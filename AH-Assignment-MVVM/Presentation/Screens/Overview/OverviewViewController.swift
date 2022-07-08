@@ -94,6 +94,7 @@ private extension OverviewViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.addSubview(paginationView)
+        paginationView.isHidden = true
         view.addSubview(collectionView)
         view.addSubview(loaderView)
         view.addSubview(messageView)
@@ -101,14 +102,13 @@ private extension OverviewViewController {
     
     func setupConstraints() {
         collectionView.snp.makeConstraints { make in
-            make.bottom.top.leading.trailing.equalToSuperview()
+            make.edges.equalToSuperview()
         }
         loaderView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         messageView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.trailing.leading.top.bottom.equalToSuperview()
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         paginationView.snp.makeConstraints { make in
             make.height.equalTo(paginationViewHeight)
@@ -148,6 +148,7 @@ private extension OverviewViewController {
         collectionView.reloadData()
         collectionView.isUserInteractionEnabled = true
         collectionView.isHidden = false
+        paginationView.isHidden = false
         loaderView.isHidden = true
         messageView.isHidden = true
         paginationView.updateBackButtonState(isEnabled: viewModel.isBackPaginationAvailable)
@@ -159,6 +160,7 @@ private extension OverviewViewController {
         messageView.isHidden = false
         collectionView.isHidden = true
         loaderView.isHidden = true
+        paginationView.isHidden = true
     }
     
     func handleErrorState(_ error: String) {
@@ -166,6 +168,7 @@ private extension OverviewViewController {
         messageView.isHidden = false
         collectionView.isHidden = true
         loaderView.isHidden = true
+        paginationView.isHidden = true
     }
 }
 

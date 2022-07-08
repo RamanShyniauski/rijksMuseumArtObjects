@@ -45,8 +45,7 @@ class OverviewCollectionViewCell: UICollectionViewCell {
         addSubview(stackView)
         imageView.kf.indicatorType = .activity
         stackView.snp.makeConstraints { make in
-            make.leading.top.equalTo(5)
-            make.trailing.bottom.equalTo(-5)
+            make.edges.equalToSuperview().inset(5)
         }
     }
     

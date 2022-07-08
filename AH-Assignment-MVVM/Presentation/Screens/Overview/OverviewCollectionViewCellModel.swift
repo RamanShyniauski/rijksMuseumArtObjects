@@ -9,6 +9,7 @@ import Foundation
 
 struct OverviewCollectionViewCellModel {
     
+    let objectNumber: String
     let title: String
     let imageURL: URL?
 }

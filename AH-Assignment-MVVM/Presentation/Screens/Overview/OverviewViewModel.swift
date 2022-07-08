@@ -70,7 +70,8 @@ class OverviewViewModelImpl: OverviewViewModel {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        print("did select item at indexPath: \(indexPath)")
+        let artObjectNumber = cellModel(at: indexPath).objectNumber
+        coordinator.showDetails(for: artObjectNumber)
     }
     
     func numberOfRows(in section: Int) -> Int {
@@ -117,6 +118,7 @@ private extension OverviewViewModelImpl {
         var cells: [String: [OverviewCollectionViewCellModel]] = [:]
         for artObject in collectionOverview.artObjects {
             let model = OverviewCollectionViewCellModel(
+                objectNumber: artObject.objectNumber,
                 title: artObject.title,
                 imageURL: URL(string: artObject.webImage.url)
             )

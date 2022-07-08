@@ -9,6 +9,8 @@ import UIKit
 
 protocol OverviewCoordinator {
     func start()
+    func showDetails(for objectNumber: String)
+    func back()
 }
 
 final class OverviewCoordinatorImpl: OverviewCoordinator {
@@ -31,5 +33,19 @@ final class OverviewCoordinatorImpl: OverviewCoordinator {
         )
         let viewController = OverviewViewController(viewModel: viewModel)
         navigationController.setViewControllers([viewController], animated: false)
+    }
+    
+    func showDetails(for objectNumber: String) {
+        let viewModel = DetailsViewModelImpl(
+            objectNumber: objectNumber,
+            coordinator: self,
+            networkManager: dependencyContainer.networkManager
+        )
+        let viewController = DetailsViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func back() {
+        navigationController.popViewController(animated: true)
     }
 }

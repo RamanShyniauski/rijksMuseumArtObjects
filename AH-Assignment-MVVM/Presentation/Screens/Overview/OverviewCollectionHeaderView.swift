@@ -26,9 +26,8 @@ class OverviewCollectionHeaderView: UICollectionReusableView {
         backgroundColor = .lightGray.withAlphaComponent(0.5)
         addSubview(labelView)
         labelView.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(0)
-            make.leading.equalTo(10)
-            make.trailing.equalTo(-10)
+            make.verticalEdges.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(10)
         }
     }
     

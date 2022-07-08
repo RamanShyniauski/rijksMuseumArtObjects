@@ -21,7 +21,7 @@ class PaginationView: UIView {
         super.init(frame: frame)
         addSubview(paginationStackView)
         paginationStackView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
     
