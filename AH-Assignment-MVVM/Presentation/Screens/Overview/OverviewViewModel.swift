@@ -25,7 +25,7 @@ protocol OverviewViewModel {
 
 class OverviewViewModelImpl: OverviewViewModel {
     
-    enum State {
+    enum State: Equatable {
         case loading, loaded, empty, error(String)
     }
     
@@ -74,6 +74,7 @@ class OverviewViewModelImpl: OverviewViewModel {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
+        guard state == .loaded else { return }
         let artObjectNumber = cellModel(at: indexPath).objectNumber
         coordinator.showDetails(for: artObjectNumber)
     }
@@ -87,14 +88,14 @@ class OverviewViewModelImpl: OverviewViewModel {
     }
     
     func onBackAction() {
-        guard isBackPaginationAvailable else { return }
+        guard isBackPaginationAvailable, state == .loaded else { return }
         currentPage -= 1
         state = .loading
         loadOverview()
     }
     
     func onForwardAction() {
-        guard isForwardPaginationAvailable else { return }
+        guard isForwardPaginationAvailable, state == .loaded else { return }
         currentPage += 1
         state = .loading
         loadOverview()

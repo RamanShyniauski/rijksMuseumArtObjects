@@ -138,17 +138,17 @@ private extension OverviewViewController {
         loaderView.startAnimating()
         loaderView.isHidden = false
         messageLabel.isHidden = true
-        collectionView.isUserInteractionEnabled = false
+        paginationView.isUserInteractionEnabled = false
     }
     
     func handleLoadedState() {
         collectionView.reloadData()
         collectionView.scrollToFirstItem()
-        collectionView.isUserInteractionEnabled = true
         collectionView.isHidden = false
         paginationView.isHidden = false
         loaderView.isHidden = true
         messageLabel.isHidden = true
+        paginationView.isUserInteractionEnabled = true
         paginationView.updateBackButtonState(isEnabled: viewModel.isBackPaginationAvailable)
         paginationView.updateForwardButtonState(isEnabled: viewModel.isForwardPaginationAvailable)
         paginationView.updatePaginationLabel(viewModel.paginationLabelText)
