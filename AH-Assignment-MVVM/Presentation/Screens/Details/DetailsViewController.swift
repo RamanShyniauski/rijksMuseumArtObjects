@@ -88,11 +88,6 @@ class DetailsViewController: UIViewController {
         setupConstraints()
         viewModel.didLoad()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        viewModel.didDisappear()
-    }
 }
 
 private extension DetailsViewController {
@@ -157,10 +152,14 @@ private extension DetailsViewController {
     func handleLoadingState() {
         loaderView.startAnimating()
         loaderView.isHidden = false
+        imageView.isHidden = true
+        scrollView.isHidden = true
     }
     
     func handleLoadedState() {
         loaderView.isHidden = true
+        imageView.isHidden = false
+        scrollView.isHidden = false
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
         imageView.layoutIfNeeded()

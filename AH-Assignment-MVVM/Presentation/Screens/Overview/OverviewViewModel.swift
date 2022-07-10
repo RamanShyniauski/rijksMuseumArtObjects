@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 protocol OverviewViewModel {
+    var state: OverviewViewModelImpl.State { get }
     var statePublisher: AnyPublisher<OverviewViewModelImpl.State, Never> { get }
     var numberOfSections: Int { get }
     var isBackPaginationAvailable: Bool { get }
@@ -29,7 +30,7 @@ class OverviewViewModelImpl: OverviewViewModel {
         case loading, loaded, empty, error(String)
     }
     
-    @Published private var state: State = .loading
+    @Published private(set) var state: State = .loading
     private(set) lazy var statePublisher = $state.eraseToAnyPublisher()
     
     private let coordinator: ArtObjectsCoordinator
@@ -105,14 +106,14 @@ class OverviewViewModelImpl: OverviewViewModel {
 private extension OverviewViewModelImpl {
     
     func loadOverview() {
-        Task {
-            do {
-                let params = ["ps": resultsPerPage, "p": currentPage]
-                let route = Route(.get, .collection(.overview), with: params)
-                let collectionOverview: Collection.Overview = try await networkManager.request(route)
-                handleSuccess(collectionOverview)
-            } catch {
-                handleError(error)
+        let params = ["ps": resultsPerPage, "p": currentPage]
+        let request = Route(.get, .collection(.overview), with: params)
+        networkManager.request(request) { [weak self] (result: Result<Collection.Overview, Error>) in
+            switch result {
+            case .success(let overview):
+                self?.handleSuccess(overview)
+            case .failure(let error):
+                self?.handleError(error)
             }
         }
     }

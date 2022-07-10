@@ -18,7 +18,6 @@ protocol DetailsViewModel: NavigationHandler {
     var title: String? { get }
     var description: String? { get }
     func didLoad()
-    func didDisappear()
 }
 
 class DetailsViewModelImpl: DetailsViewModel {
@@ -34,7 +33,6 @@ class DetailsViewModelImpl: DetailsViewModel {
     private let coordinator: ArtObjectsCoordinator
     private let networkManager: NetworkManager
     
-    private var loadingTask: Task<Void, Never>?
     private var artObject: ArtObject.Full?
     
     var imageURL: URL? {
@@ -60,24 +58,15 @@ class DetailsViewModelImpl: DetailsViewModel {
     }
     
     func didLoad() {
-        guard loadingTask == nil else {
-            return
-        }
-        loadingTask = Task {
-            do {
-                let route = Route(.get, .collection(.details(objectNumber)))
-                let objectDetails: Collection.ObjectDetails = try await networkManager.request(route)
-                handleSuccess(objectDetails)
-            } catch {
-                handleError(error)
+        let request = Route(.get, .collection(.details(objectNumber)))
+        networkManager.request(request) { [weak self] (result: Result<Collection.ObjectDetails, Error>) in
+            switch result {
+            case .success(let details):
+                self?.handleSuccess(details)
+            case .failure(let error):
+                self?.handleError(error)
             }
-            loadingTask = nil
         }
-    }
-    
-    func didDisappear() {
-        loadingTask?.cancel()
-        loadingTask = nil
     }
     
     @objc

@@ -9,7 +9,10 @@ import Alamofire
 import Foundation
 
 protocol NetworkManager {
-    func request<Response: Decodable>(_ request: URLRequestConvertible) async throws -> Response
+    func request<Response: Decodable>(
+        _ request: URLRequestConvertible,
+        completion: @escaping (Swift.Result<Response, Error>) -> Void
+    )
 }
 
 final class NetworkManagerImpl: NetworkManager {
@@ -20,14 +23,20 @@ final class NetworkManagerImpl: NetworkManager {
         self.session = session
     }
     
-    func request<Response: Decodable>(_ request: URLRequestConvertible) async throws -> Response {
-        let request = session.request(request).validate()
-        let response = await request.serializingDecodable(Response.self).response
-        switch response.result {
-        case .success(let value):
-            return value
-        case .failure(let error):
-            throw error
-        }
+    func request<Response: Decodable>(
+        _ request: URLRequestConvertible,
+        completion: @escaping (Swift.Result<Response, Error>) -> Void
+    ) {
+        session
+            .request(request)
+            .validate()
+            .responseDecodable(of: Response.self) { response in
+                switch response.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
     }
 }
