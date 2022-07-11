@@ -11,9 +11,6 @@
 		30DFCBCC287599C200E57A72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBCB287599C200E57A72 /* SceneDelegate.swift */; };
 		30DFCBD3287599C400E57A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DFCBD2287599C400E57A72 /* Assets.xcassets */; };
 		30DFCBD6287599C400E57A72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DFCBD4287599C400E57A72 /* LaunchScreen.storyboard */; };
-		30DFCBE1287599C400E57A72 /* AH_Assignment_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBE0287599C400E57A72 /* AH_Assignment_MVVMTests.swift */; };
-		30DFCBEB287599C400E57A72 /* AH_Assignment_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBEA287599C400E57A72 /* AH_Assignment_MVVMUITests.swift */; };
-		30DFCBED287599C400E57A72 /* AH_Assignment_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBEC287599C400E57A72 /* AH_Assignment_MVVMUITestsLaunchTests.swift */; };
 		30DFCBFE28759D4300E57A72 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBFD28759D4300E57A72 /* OverviewViewController.swift */; };
 		30DFCC0028759D5500E57A72 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCBFF28759D5500E57A72 /* OverviewViewModel.swift */; };
 		30DFCC022875AFD400E57A72 /* ArtObjectsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC012875AFD300E57A72 /* ArtObjectsCoordinator.swift */; };
@@ -45,17 +42,15 @@
 		30DFCC582878253D00E57A72 /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC572878253D00E57A72 /* PaginationView.swift */; };
 		30DFCC5D2878375E00E57A72 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC5C2878375E00E57A72 /* DetailsViewController.swift */; };
 		30DFCC5F2878376800E57A72 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC5E2878376800E57A72 /* DetailsViewModel.swift */; };
+		30DFCC64287A22BE00E57A72 /* OverviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC63287A22BE00E57A72 /* OverviewViewModelTests.swift */; };
+		30DFCC66287A22DD00E57A72 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC65287A22DD00E57A72 /* MockNetworkManager.swift */; };
+		30DFCC69287A245900E57A72 /* MockArtObjectsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC68287A245900E57A72 /* MockArtObjectsCoordinator.swift */; };
+		30DFCC6E287B3AD000E57A72 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC6D287B3AD000E57A72 /* StubGenerator.swift */; };
+		30DFCC74287B63EB00E57A72 /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DFCC73287B63EB00E57A72 /* DetailsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		30DFCBDD287599C400E57A72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30DFCBBE287599C200E57A72 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30DFCBC5287599C200E57A72;
-			remoteInfo = "AH-Assignment-MVVM";
-		};
-		30DFCBE7287599C400E57A72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 30DFCBBE287599C200E57A72 /* Project object */;
 			proxyType = 1;
@@ -72,10 +67,6 @@
 		30DFCBD5287599C400E57A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30DFCBD7287599C400E57A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30DFCBDC287599C400E57A72 /* AH-Assignment-MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AH-Assignment-MVVMTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30DFCBE0287599C400E57A72 /* AH_Assignment_MVVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AH_Assignment_MVVMTests.swift; sourceTree = "<group>"; };
-		30DFCBE6287599C400E57A72 /* AH-Assignment-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AH-Assignment-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30DFCBEA287599C400E57A72 /* AH_Assignment_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AH_Assignment_MVVMUITests.swift; sourceTree = "<group>"; };
-		30DFCBEC287599C400E57A72 /* AH_Assignment_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AH_Assignment_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		30DFCBFD28759D4300E57A72 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		30DFCBFF28759D5500E57A72 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		30DFCC012875AFD300E57A72 /* ArtObjectsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsCoordinator.swift; sourceTree = "<group>"; };
@@ -105,6 +96,11 @@
 		30DFCC572878253D00E57A72 /* PaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
 		30DFCC5C2878375E00E57A72 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		30DFCC5E2878376800E57A72 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		30DFCC63287A22BE00E57A72 /* OverviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModelTests.swift; sourceTree = "<group>"; };
+		30DFCC65287A22DD00E57A72 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		30DFCC68287A245900E57A72 /* MockArtObjectsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtObjectsCoordinator.swift; sourceTree = "<group>"; };
+		30DFCC6D287B3AD000E57A72 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
+		30DFCC73287B63EB00E57A72 /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,13 +121,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30DFCBE3287599C400E57A72 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -140,7 +129,6 @@
 			children = (
 				30DFCBC8287599C200E57A72 /* AH-Assignment-MVVM */,
 				30DFCBDF287599C400E57A72 /* AH-Assignment-MVVMTests */,
-				30DFCBE9287599C400E57A72 /* AH-Assignment-MVVMUITests */,
 				30DFCBC7287599C200E57A72 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,7 +138,6 @@
 			children = (
 				30DFCBC6287599C200E57A72 /* AH-Assignment-MVVM.app */,
 				30DFCBDC287599C400E57A72 /* AH-Assignment-MVVMTests.xctest */,
-				30DFCBE6287599C400E57A72 /* AH-Assignment-MVVMUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,18 +160,11 @@
 		30DFCBDF287599C400E57A72 /* AH-Assignment-MVVMTests */ = {
 			isa = PBXGroup;
 			children = (
-				30DFCBE0287599C400E57A72 /* AH_Assignment_MVVMTests.swift */,
+				30DFCC72287B3AEF00E57A72 /* Helpers */,
+				30DFCC67287A22E100E57A72 /* Mock */,
+				30DFCC71287B3AE700E57A72 /* Tests */,
 			);
 			path = "AH-Assignment-MVVMTests";
-			sourceTree = "<group>";
-		};
-		30DFCBE9287599C400E57A72 /* AH-Assignment-MVVMUITests */ = {
-			isa = PBXGroup;
-			children = (
-				30DFCBEA287599C400E57A72 /* AH_Assignment_MVVMUITests.swift */,
-				30DFCBEC287599C400E57A72 /* AH_Assignment_MVVMUITestsLaunchTests.swift */,
-			);
-			path = "AH-Assignment-MVVMUITests";
 			sourceTree = "<group>";
 		};
 		30DFCBF928759BA300E57A72 /* Application */ = {
@@ -222,7 +202,6 @@
 				30DFCBFD28759D4300E57A72 /* OverviewViewController.swift */,
 				30DFCBFF28759D5500E57A72 /* OverviewViewModel.swift */,
 				30DFCC452876E30D00E57A72 /* OverviewCollectionViewCell.swift */,
-				30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */,
 				30DFCC4C28771CE500E57A72 /* OverviewCollectionHeaderView.swift */,
 			);
 			path = Overview;
@@ -327,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				30DFCC5128772D5400E57A72 /* OverviewSection.swift */,
+				30DFCC4A28770A7700E57A72 /* OverviewCollectionViewCellModel.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -363,6 +343,32 @@
 				30DFCC012875AFD300E57A72 /* ArtObjectsCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		30DFCC67287A22E100E57A72 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC65287A22DD00E57A72 /* MockNetworkManager.swift */,
+				30DFCC68287A245900E57A72 /* MockArtObjectsCoordinator.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		30DFCC71287B3AE700E57A72 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC73287B63EB00E57A72 /* DetailsViewModelTests.swift */,
+				30DFCC63287A22BE00E57A72 /* OverviewViewModelTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		30DFCC72287B3AEF00E57A72 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30DFCC6D287B3AD000E57A72 /* StubGenerator.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,24 +414,6 @@
 			productReference = 30DFCBDC287599C400E57A72 /* AH-Assignment-MVVMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		30DFCBE5287599C400E57A72 /* AH-Assignment-MVVMUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30DFCBF6287599C400E57A72 /* Build configuration list for PBXNativeTarget "AH-Assignment-MVVMUITests" */;
-			buildPhases = (
-				30DFCBE2287599C400E57A72 /* Sources */,
-				30DFCBE3287599C400E57A72 /* Frameworks */,
-				30DFCBE4287599C400E57A72 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30DFCBE8287599C400E57A72 /* PBXTargetDependency */,
-			);
-			name = "AH-Assignment-MVVMUITests";
-			productName = "AH-Assignment-MVVMUITests";
-			productReference = 30DFCBE6287599C400E57A72 /* AH-Assignment-MVVMUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -440,10 +428,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					30DFCBDB287599C400E57A72 = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 30DFCBC5287599C200E57A72;
-					};
-					30DFCBE5287599C400E57A72 = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 30DFCBC5287599C200E57A72;
 					};
@@ -469,7 +453,6 @@
 			targets = (
 				30DFCBC5287599C200E57A72 /* AH-Assignment-MVVM */,
 				30DFCBDB287599C400E57A72 /* AH-Assignment-MVVMTests */,
-				30DFCBE5287599C400E57A72 /* AH-Assignment-MVVMUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -485,13 +468,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		30DFCBDA287599C400E57A72 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30DFCBE4287599C400E57A72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -542,16 +518,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30DFCBE1287599C400E57A72 /* AH_Assignment_MVVMTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30DFCBE2287599C400E57A72 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30DFCBED287599C400E57A72 /* AH_Assignment_MVVMUITestsLaunchTests.swift in Sources */,
-				30DFCBEB287599C400E57A72 /* AH_Assignment_MVVMUITests.swift in Sources */,
+				30DFCC69287A245900E57A72 /* MockArtObjectsCoordinator.swift in Sources */,
+				30DFCC66287A22DD00E57A72 /* MockNetworkManager.swift in Sources */,
+				30DFCC74287B63EB00E57A72 /* DetailsViewModelTests.swift in Sources */,
+				30DFCC64287A22BE00E57A72 /* OverviewViewModelTests.swift in Sources */,
+				30DFCC6E287B3AD000E57A72 /* StubGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,11 +533,6 @@
 			isa = PBXTargetDependency;
 			target = 30DFCBC5287599C200E57A72 /* AH-Assignment-MVVM */;
 			targetProxy = 30DFCBDD287599C400E57A72 /* PBXContainerItemProxy */;
-		};
-		30DFCBE8287599C400E57A72 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30DFCBC5287599C200E57A72 /* AH-Assignment-MVVM */;
-			targetProxy = 30DFCBE7287599C400E57A72 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -794,42 +760,6 @@
 			};
 			name = Release;
 		};
-		30DFCBF7287599C400E57A72 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AT7JWQJ474;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "raman.shyniauski.AH-Assignment-MVVMUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "AH-Assignment-MVVM";
-			};
-			name = Debug;
-		};
-		30DFCBF8287599C400E57A72 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AT7JWQJ474;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "raman.shyniauski.AH-Assignment-MVVMUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "AH-Assignment-MVVM";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -856,15 +786,6 @@
 			buildConfigurations = (
 				30DFCBF4287599C400E57A72 /* Debug */,
 				30DFCBF5287599C400E57A72 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30DFCBF6287599C400E57A72 /* Build configuration list for PBXNativeTarget "AH-Assignment-MVVMUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30DFCBF7287599C400E57A72 /* Debug */,
-				30DFCBF8287599C400E57A72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

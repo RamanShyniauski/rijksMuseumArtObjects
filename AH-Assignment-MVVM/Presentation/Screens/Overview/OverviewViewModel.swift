@@ -138,10 +138,11 @@ private extension OverviewViewModelImpl {
     }
     
     func handleError(_ error: Error) {
+        // MARK: custom handlers can be added here (e.g. retry button for timedOut, offline message for offline etc)
         if let networkError = error as? NetworkError {
-            // TODO: add custom handler for every type of error (e.g. retry button for timedOut, offline message for offline etc)
+            
         } else if let encodeError = error as? EncodeError {
-            // TODO: add custom handler and log this error
+            
         }
         state = .error(error.localizedDescription)
     }

@@ -13,6 +13,7 @@ import Foundation
 }
 
 protocol DetailsViewModel: NavigationHandler {
+    var state: DetailsViewModelImpl.State { get }
     var statePublisher: AnyPublisher<DetailsViewModelImpl.State, Never> { get }
     var imageURL: URL? { get }
     var title: String? { get }
@@ -22,11 +23,11 @@ protocol DetailsViewModel: NavigationHandler {
 
 class DetailsViewModelImpl: DetailsViewModel {
     
-    enum State {
+    enum State: Equatable {
         case loading, loaded, error(String)
     }
     
-    @Published private var state: State = .loading
+    @Published private(set) var state: State = .loading
     private(set) lazy var statePublisher = $state.eraseToAnyPublisher()
     
     private let objectNumber: String
@@ -83,10 +84,11 @@ private extension DetailsViewModelImpl {
     }
     
     func handleError(_ error: Error) {
+        // MARK: custom handlers can be added here (e.g. retry button for timedOut, offline message for offline etc)
         if let networkError = error as? NetworkError {
-            // TODO: add custom handler for every type of error (e.g. retry button for timedOut, offline message for offline etc)
+            
         } else if let encodeError = error as? EncodeError {
-            // TODO: add custom handler and log this error
+            
         }
         state = .error(error.localizedDescription)
     }
