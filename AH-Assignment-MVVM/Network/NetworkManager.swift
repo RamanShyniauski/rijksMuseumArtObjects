@@ -30,7 +30,7 @@ final class NetworkManagerImpl: NetworkManager {
         session
             .request(request)
             .validate()
-            .responseDecodable(of: Response.self) { response in
+            .responseDecodable(of: Response.self, queue: .global(qos: .userInitiated)) { response in
                 switch response.result {
                 case .success(let value):
                     completion(.success(value))
